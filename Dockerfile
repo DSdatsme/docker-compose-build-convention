@@ -1,4 +1,6 @@
-FROM nginx as base
+ARG BASE_OS
+
+FROM $BASE_OS as base
 
 RUN apt-get update \
     && apt-get install -y curl \
