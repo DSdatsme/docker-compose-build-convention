@@ -5,13 +5,19 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
+ARG APP_ENV=local
+
+ENV APP_ENV=${APP_ENV}
+
 EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]
 
+
 FROM base as nginx1
 
 COPY ./nginx1/index.html /usr/share/nginx/html/index.html
+
 
 FROM base as nginx2
 

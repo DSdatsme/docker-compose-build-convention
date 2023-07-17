@@ -5,5 +5,24 @@ services:
     image: dsdatsme/nginx:base
     build:
       context: ./
+      target: base
     ports:
       - "80:80"
+  nginx1:
+    image: dsdatsme/nginx:1
+    build:
+      context: ./
+      target: nginx1
+      args:
+        APP_ENV: development
+    ports:
+      - "8001:80"
+  nginx2:
+    image: dsdatsme/nginx:2
+    build:
+      context: ./
+      target: nginx2
+      args:
+        APP_ENV: production
+    ports:
+      - "8002:80"
