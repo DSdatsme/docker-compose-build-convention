@@ -12,3 +12,7 @@ CMD ["nginx", "-g", "daemon off;"]
 FROM base as nginx1
 
 COPY ./nginx1/index.html /usr/share/nginx/html/index.html
+
+FROM base as nginx2
+
+COPY ./nginx2/index.html /usr/share/nginx/html/index.html
