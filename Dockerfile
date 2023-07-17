@@ -8,3 +8,7 @@ RUN apt-get update \
 EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]
+
+FROM base as nginx1
+
+COPY ./nginx1/index.html /usr/share/nginx/html/index.html
